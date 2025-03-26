@@ -8,10 +8,10 @@ using ContactService.Infrastructure.Kafka;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.Configure<MongoSettings>(
-    builder.Configuration.GetSection("MongoSettings"));
-
+builder.Services.Configure<MongoSettings>(builder.Configuration.GetSection("MongoSettings"));
 builder.Services.AddSingleton<MongoContext>();
+
+
 builder.Services.AddScoped<IPersonRepository, PersonRepository>();
 builder.Services.AddScoped<PersonService>();
 builder.Services.AddSingleton<KafkaProducerService>();

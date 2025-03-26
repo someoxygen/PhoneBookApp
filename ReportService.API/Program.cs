@@ -1,8 +1,14 @@
 using ReportService.Infrastructure.Kafka.Consumers;
+using ReportService.Infrastructure.Mongo.Repositories;
+using ReportService.Infrastructure.Mongo.Context;
+using ReportService.Infrastructure.Mongo.Settings;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+builder.Services.Configure<MongoSettings>(builder.Configuration.GetSection("MongoSettings"));
+builder.Services.AddSingleton<MongoContext>();
+builder.Services.AddScoped<ReportRepository>();
 builder.Services.AddHostedService<ReportRequestedConsumer>();
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

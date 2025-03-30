@@ -1,6 +1,6 @@
 
 ```md
-# 📱 PhoneBook Microservices Uygulaması
+# 📱 PhoneBookApp Microservices Uygulaması
 
 Bu proje, basit bir telefon rehberi uygulamasının microservice mimarisi ile geliştirilmiş halidir. 
 İki servis birbirinden bağımsızdır ve Kafka üzerinden haberleşir. Veritabanı olarak MongoDB kullanılmıştır.
@@ -43,9 +43,15 @@ Bu proje, basit bir telefon rehberi uygulamasının microservice mimarisi ile ge
 docker-compose up -d
 ```
 
-### 3. Servisleri Çalıştırma
+Tabii, işte bu adımı doğrudan `README.md` dosyana ekleyebileceğin şekilde, **otomatikleştirilmiş haliyle ve formatlı** olarak yazdım 👇
 
-Her bir servisi ayrı terminalde şu komutlarla başlat:
+---
+
+### 🚀 3. Servisleri Çalıştırma
+
+#### 🔹 Yöntem 1 – Terminal Üzerinden
+
+Her bir servisi ayrı terminalde çalıştır:
 
 ```bash
 cd ContactService.API
@@ -54,6 +60,28 @@ dotnet run
 cd ReportService.API
 dotnet run
 ```
+
+---
+
+#### 🔹 Yöntem 2 – Visual Studio Üzerinden Aynı Anda Çalıştırma
+
+Visual Studio kullanıyorsan, iki servisi birlikte başlatmak için aşağıdaki adımları izle:
+
+##### 1. Visual Studio’da Çoklu Proje Başlatma Ayarı
+
+- Solution’a sağ tıkla → **Set Startup Projects...** seç
+- Açılan pencerede:
+  - **Multiple startup projects** seçeneğini işaretle
+  - `ContactService.API` ve `ReportService.API` projeleri için **Action** kısmını `Start` olarak ayarla
+  - **OK** butonuna tıkla
+
+##### 2. F5'e Bas 🚀
+
+Artık Visual Studio üzerinden her iki servisi de aynı anda başlatabilirsin.  
+Swagger arayüzleri şu adreslerden erişilebilir:
+
+- `ContactService.API` → https://localhost:7186/swagger
+- `ReportService.API` → https://localhost:7072/swagger
 
 ---
 

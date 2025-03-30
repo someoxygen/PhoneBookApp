@@ -1,5 +1,8 @@
-﻿namespace ReportService.Infrastructure.Mongo.Settings;
+﻿using System.Diagnostics.CodeAnalysis;
 
+namespace ReportService.Infrastructure.Mongo.Settings;
+
+[ExcludeFromCodeCoverage]
 public class MongoSettings
 {
     public string ConnectionString { get; set; } = null!;

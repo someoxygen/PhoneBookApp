@@ -7,9 +7,9 @@ namespace ContactService.Infrastructure.Mongo.Repositories;
 
 public class ContactInformationRepository : IContactInformationRepository
 {
-    private readonly MongoContext _context;
+    private readonly IMongoContext _context;
 
-    public ContactInformationRepository(MongoContext context)
+    public ContactInformationRepository(IMongoContext context)
     {
         _context = context;
     }

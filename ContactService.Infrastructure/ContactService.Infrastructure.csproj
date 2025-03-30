@@ -9,6 +9,7 @@
   <ItemGroup>
     <ProjectReference Include="..\ContactService.Application\ContactService.Application.csproj" />
     <ProjectReference Include="..\ContactService.Domain\ContactService.Domain.csproj" />
+    <ProjectReference Include="..\ReportService.Infrastructure\ReportService.Infrastructure.csproj" />
     <ProjectReference Include="..\Shared\Shared.csproj" />
   </ItemGroup>
 

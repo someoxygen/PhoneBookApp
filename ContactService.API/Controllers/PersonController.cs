@@ -1,16 +1,12 @@
-﻿using ContactService.Application.Services;
+﻿using ContactService.Application.Interfaces;
 using ContactService.Domain.Entities;
 using Microsoft.AspNetCore.Mvc;
 
-namespace ContactService.API.Controllers;
-
-[Route("api/[controller]")]
-[ApiController]
 public class PersonController : ControllerBase
 {
-    private readonly PersonService _personService;
+    private readonly IPersonService _personService;
 
-    public PersonController(PersonService personService)
+    public PersonController(IPersonService personService)
     {
         _personService = personService;
     }
@@ -24,10 +20,7 @@ public class PersonController : ControllerBase
 
     [HttpGet("all")]
     public async Task<ActionResult<List<Person>>> GetAllPersons()
-    {
-        var persons = await _personService.GetAllPersonsAsync();
-        return Ok(persons);
-    }
+        => Ok(await _personService.GetAllPersonsAsync());
 
     [HttpGet("{id}")]
     public async Task<ActionResult<Person>> GetPersonById(Guid id)
@@ -39,7 +32,7 @@ public class PersonController : ControllerBase
         return Ok(person);
     }
 
-    [HttpDelete("{id}")]
+    [HttpDelete("person/{id}")]
     public async Task<IActionResult> DeletePerson(Guid id)
     {
         await _personService.RemovePersonAsync(id);

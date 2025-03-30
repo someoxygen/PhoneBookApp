@@ -1,21 +1,16 @@
-﻿using ContactService.Application.Services;
+﻿using ContactService.Application.Interfaces;
 using ContactService.Domain.Entities;
 using Microsoft.AspNetCore.Mvc;
 
-namespace ContactService.API.Controllers;
-
-[Route("api/[controller]")]
-[ApiController]
 public class ContactInformationController : ControllerBase
 {
-    private readonly ContactInformationService _service;
+    private readonly IContactInformationService _service;
 
-    public ContactInformationController(ContactInformationService service)
+    public ContactInformationController(IContactInformationService service)
     {
         _service = service;
     }
 
-    // İletişim bilgisi ekle
     [HttpPost("add")]
     public async Task<IActionResult> Add([FromBody] ContactInformation contactInformation)
     {
@@ -23,15 +18,13 @@ public class ContactInformationController : ControllerBase
         return Ok(contactInformation);
     }
 
-    // İletişim bilgisi kaldır
-    [HttpDelete("{id}")]
+    [HttpDelete("info/{id}")]
     public async Task<IActionResult> Remove(Guid id)
     {
         await _service.RemoveContactInformationAsync(id);
         return NoContent();
     }
 
-    // Bir kişiye ait iletişim bilgilerini getir
     [HttpGet("person/{personId}")]
     public async Task<ActionResult<List<ContactInformation>>> GetByPersonId(Guid personId)
     {

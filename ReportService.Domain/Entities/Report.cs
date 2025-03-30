@@ -16,13 +16,6 @@ public class Report
     public List<ReportDetail> Details { get; set; } = new();
 }
 
-public class ReportDetail
-{
-    public string Location { get; set; } = null!;
-    public int PersonCount { get; set; }
-    public int PhoneNumberCount { get; set; }
-}
-
 public enum ReportStatus
 {
     Preparing,

@@ -2,15 +2,13 @@
 using Microsoft.AspNetCore.Mvc;
 using Shared.Events;
 
-namespace ContactService.API.Controllers;
-
 [Route("api/[controller]")]
 [ApiController]
 public class ReportsController : ControllerBase
 {
-    private readonly KafkaProducerService _kafkaProducer;
+    private readonly IKafkaProducerService _kafkaProducer;
 
-    public ReportsController(KafkaProducerService kafkaProducer)
+    public ReportsController(IKafkaProducerService kafkaProducer)
     {
         _kafkaProducer = kafkaProducer;
     }
@@ -19,7 +17,6 @@ public class ReportsController : ControllerBase
     public async Task<IActionResult> RequestReport()
     {
         var reportEvent = new ReportRequestedEvent();
-
         await _kafkaProducer.ProduceReportRequestedEventAsync(reportEvent);
 
         return Ok(new { Message = "Rapor talebi alındı, işleniyor.", ReportId = reportEvent.ReportId });

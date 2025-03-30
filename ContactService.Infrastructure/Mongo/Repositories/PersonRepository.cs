@@ -7,9 +7,9 @@ namespace ContactService.Infrastructure.Mongo.Repositories;
 
 public class PersonRepository : IPersonRepository
 {
-    private readonly MongoContext _context;
+    private readonly IMongoContext _context;
 
-    public PersonRepository(MongoContext context)
+    public PersonRepository(IMongoContext context)
     {
         _context = context;
     }

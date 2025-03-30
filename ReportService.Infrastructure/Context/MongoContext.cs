@@ -1,19 +1,21 @@
-﻿using Microsoft.Extensions.Options;
-using MongoDB.Driver;
+﻿using System.Diagnostics.CodeAnalysis;
 using ReportService.Domain.Entities;
+using Microsoft.Extensions.Options;
+using MongoDB.Driver;
 using ReportService.Infrastructure.Mongo.Settings;
 
-namespace ReportService.Infrastructure.Mongo.Context;
-
-public class MongoContext
+namespace ReportService.Infrastructure.Context;
+[ExcludeFromCodeCoverage]
+public class MongoContext : IMongoContext
 {
-    private readonly IMongoDatabase _database;
+    public IMongoCollection<Report> Reports { get; }
 
-    public MongoContext(IOptions<MongoSettings> settings)
+    public MongoContext(IOptions<MongoSettings> options)
     {
-        var client = new MongoClient(settings.Value.ConnectionString);
-        _database = client.GetDatabase(settings.Value.DatabaseName);
+        var client = new MongoClient(options.Value.ConnectionString);
+        var database = client.GetDatabase(options.Value.DatabaseName);
+        Reports = database.GetCollection<Report>("Reports");
     }
-
-    public IMongoCollection<Report> Reports => _database.GetCollection<Report>("Reports");
 }
+
+

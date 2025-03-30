@@ -5,7 +5,7 @@ using Shared.Events;
 
 namespace ContactService.Infrastructure.Kafka;
 
-public class KafkaProducerService
+public class KafkaProducerService : IKafkaProducerService
 {
     private readonly ProducerConfig _config;
 

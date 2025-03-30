@@ -1,20 +1,24 @@
-﻿using MongoDB.Driver;
+﻿using System.Diagnostics.CodeAnalysis;
 using ContactService.Domain.Entities;
-using ContactService.Infrastructure.Mongo.Settings;
 using Microsoft.Extensions.Options;
+using MongoDB.Driver;
+using ReportService.Infrastructure.Mongo.Settings;
 
 namespace ContactService.Infrastructure.Mongo.Context;
 
-public class MongoContext
+[ExcludeFromCodeCoverage]
+public class MongoContext : IMongoContext
 {
-    private readonly IMongoDatabase _database;
+    public IMongoCollection<Person> Persons { get; }
+    public IMongoCollection<ContactInformation> ContactInformations { get; }
 
-    public MongoContext(IOptions<MongoSettings> settings)
+    public MongoContext(IOptions<MongoSettings> options)
     {
-        var client = new MongoClient(settings.Value.ConnectionString);
-        _database = client.GetDatabase(settings.Value.DatabaseName);
+        var client = new MongoClient(options.Value.ConnectionString);
+        var database = client.GetDatabase(options.Value.DatabaseName);
+        Persons = database.GetCollection<Person>("Persons");
+        ContactInformations = database.GetCollection<ContactInformation>("ContactInformations");
     }
-
-    public IMongoCollection<Person> Persons => _database.GetCollection<Person>("Persons");
-    public IMongoCollection<ContactInformation> ContactInformations => _database.GetCollection<ContactInformation>("ContactInformations");
 }
+
+

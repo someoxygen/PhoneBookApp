@@ -1,14 +1,15 @@
 ﻿using MongoDB.Driver;
+using ReportService.Application.Interfaces;
 using ReportService.Domain.Entities;
-using ReportService.Infrastructure.Mongo.Context;
+using ReportService.Infrastructure.Context;
 
 namespace ReportService.Infrastructure.Mongo.Repositories;
 
-public class ReportRepository
+public class ReportRepository : IReportRepository
 {
-    private readonly MongoContext _context;
+    private readonly IMongoContext _context;
 
-    public ReportRepository(MongoContext context)
+    public ReportRepository(IMongoContext context)
     {
         _context = context;
     }

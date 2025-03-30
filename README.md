@@ -2,7 +2,8 @@
 ```md
 # 📱 PhoneBook Microservices Uygulaması
 
-Bu proje, basit bir telefon rehberi uygulamasının microservice mimarisi ile geliştirilmiş halidir. İki servis birbirinden bağımsızdır ve Kafka üzerinden haberleşir. Veritabanı olarak MongoDB kullanılmıştır.
+Bu proje, basit bir telefon rehberi uygulamasının microservice mimarisi ile geliştirilmiş halidir. 
+İki servis birbirinden bağımsızdır ve Kafka üzerinden haberleşir. Veritabanı olarak MongoDB kullanılmıştır.
 
 ---
 
@@ -128,5 +129,3 @@ Raporu `coverage-report/index.html` üzerinden açabilirsiniz.
 - [https://github.com/someoxygen]  
 - İletişim: [mustafaycl37@gmail.com]
 ```
-
----

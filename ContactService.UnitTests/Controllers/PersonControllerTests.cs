@@ -1,4 +1,5 @@
-﻿using ContactService.Application.Interfaces;
+﻿using ContactService.API.Controllers;
+using ContactService.Application.Interfaces;
 using ContactService.Domain.Entities;
 using FluentAssertions;
 using Microsoft.AspNetCore.Mvc;

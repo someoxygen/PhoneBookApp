@@ -159,4 +159,3 @@ Raporu `coverage-report/index.html` üzerinden açabilirsiniz.
 - [Mustafa Yücel]  
 - [https://github.com/someoxygen]  
 - İletişim: [mustafaycl37@gmail.com]
-```

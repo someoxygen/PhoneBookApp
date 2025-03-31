@@ -2,6 +2,10 @@
 using ContactService.Domain.Entities;
 using Microsoft.AspNetCore.Mvc;
 
+namespace ContactService.API.Controllers;
+
+[Route("api/[controller]")]
+[ApiController]
 public class ContactInformationController : ControllerBase
 {
     private readonly IContactInformationService _service;

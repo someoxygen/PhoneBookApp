@@ -2,7 +2,7 @@
 using ContactService.Domain.Entities;
 using Microsoft.Extensions.Options;
 using MongoDB.Driver;
-using ReportService.Infrastructure.Mongo.Settings;
+using ContactService.Infrastructure.Mongo.Settings;
 
 namespace ContactService.Infrastructure.Mongo.Context;
 

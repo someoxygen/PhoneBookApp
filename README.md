@@ -3,7 +3,8 @@
 # 📱 PhoneBookApp Microservices Uygulaması
 
 Bu proje, basit bir telefon rehberi uygulamasının microservice mimarisi ile geliştirilmiş halidir. 
-İki servis birbirinden bağımsızdır ve Kafka üzerinden haberleşir. Veritabanı olarak MongoDB kullanılmıştır.
+İki servis birbirinden bağımsızdır ve Kafka üzerinden haberleşir. 
+Veritabanı olarak MongoDB kullanılmıştır.
 
 ---
 
@@ -35,7 +36,9 @@ Bu proje, basit bir telefon rehberi uygulamasının microservice mimarisi ile ge
 
 - [.NET 8 SDK](https://dotnet.microsoft.com/en-us/download)
 - [Docker Desktop](https://www.docker.com/products/docker-desktop/)
+- [MongoDB Compass](https://www.mongodb.com/try/download/compass)
 - Kafka (Docker ile)
+- MongoDB (Docker ile)
 
 ### 2. Docker ile Kafka & MongoDB Başlatma
 
